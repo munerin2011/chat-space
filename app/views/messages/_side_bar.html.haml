@@ -1,0 +1,19 @@
+.side-bar
+  .side-header
+    .side-header__box
+      .side-header__box__name
+        tesmanA
+      .side-header__box__menu
+        = link_to '#', class: 'side-header__box__btn' do
+          = icon('far', 'edit')
+          %span<>
+        = link_to '#', class: 'side-header__box__btn' do
+          = icon('fa',  'cog')
+          %span<>
+  .groups
+    =link_to "#", class: "group" do
+      .group__group-name
+        techcamp
+      .group__latest-message
+        まだメッセージがありません
+   
