@@ -39,10 +39,11 @@
     padding: 20px;
     .group {
       color: #ffffff;
-      font-weight: bold;
       text-decoration: none;
+      margin-bottom: 40px;
       &__group-name {
         font-size: 15px;
+        // font-weight: bold;
       }
       &__latest-message {
         font-size: 11px;
@@ -95,6 +96,7 @@
     height: calc(100vh - 190px);
     background-color: #fafafa;
     padding-top: 46px;;
+    overflow: scroll;
     .post {
       margin: 0 0 46px 40px;
       &__info {
@@ -114,6 +116,9 @@
         color: #434A54;
         font-size: 14px;
         margin-top: 12px;
+        &__body {
+          margin-bottom: 10px;
+        }
       }
     }
   }

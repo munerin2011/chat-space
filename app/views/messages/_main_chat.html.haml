@@ -2,44 +2,22 @@
   .group-info
     .group-info__leftbox
       .group-info__leftbox__group-name
-        techcamp
+        = @group.name
       %ul.group-info__leftbox__member
         Member：
         %li.group-info__leftbox__member__first
-          tesmanA
+          - @group.group_users.each do |group_user|
+            = group_user.user.name
     .group-info__edit
-      = link_to 'edit_group_path', class: 'group-info__edit__btn' do
+      = link_to edit_group_path(@group), class: 'group-info__edit__btn' do
         Edit
   .message-list
-    .post 
-      .post__info
-        .post__info__name
-          tesmanA
-        .post__info__date
-          2019/11/20(Wed) 12:32:01
-      .post__comment
-        hello world!
-    .post 
-      .post__info
-        .post__info__name
-          tesmanB
-        .post__info__date
-          2019/11/20(Wed) 07:20:10
-      .post__comment
-        good morning world!
-    .post 
-      .post__info
-        .post__info__name
-          tesmanC
-        .post__info__date
-          2019/11/20(Wed) 23:45:37
-      .post__comment
-        good night world!
+    = render @messages
   .form
-    %form.new_message
+    = form_for [@group, @message] do |f|
       .input-box
-        %input{type: 'text', class: 'input-box__text', placeholder: 'type a message'}
-        %label{class: 'input-box__image'}
-          =icon('fas', 'image')
-          %input{type: 'file', class: 'input-box__image__file'}
-      %input{type: 'submit', class: 'submit-btn', value: 'Send'}
+        = f.text_field :body, class: 'input-box__text', placeholder: 'type a message'
+        = f.label :image, class: 'input-box__image' do
+          = icon('fas', 'image')
+          = f.file_field :image, class: 'input-box__image__file'
+      = f.submit 'Send', class: 'submit-btn'
