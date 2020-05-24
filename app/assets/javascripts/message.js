@@ -41,10 +41,11 @@ $(function(){
       $('.message-list').append(html);
       $('.message-list').animate({ scrollTop: $('.message-list')[0].scrollHeight });
       $('form')[0].reset();
-      $('.submit-btn').attr('disabled', false);
     })
     .fail(function(){
       alert('メッセージ送信に失敗しました')
+    })
+    .always(function(){
       $('.submit-btn').attr('disabled', false);
     })
   })
