@@ -9,4 +9,5 @@
       %p.post__comment__body
         = message.body
       = image_tag message.image.url if message.image.present?
-
+    - else
+      = image_tag message.image.url if message.image.present?
